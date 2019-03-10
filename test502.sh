@@ -11,7 +11,7 @@ echo -e 'Restart job specified'
 sleep 3
 
 
-rm -rf /tmp/sunbot/
+sudo rm -rf /tmp/sunbot/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
@@ -23,7 +23,7 @@ git clone https://github.com/sun-bot/sunbot.git /tmp/sunbot
 cd /tmp/sunbot
 chmod +x /tmp/sunbot/sunbot
 chmod 777 ./*.sh
-cp /tmp/sunbot/sunbot /usr/bin/
+sudo cp /tmp/sunbot/sunbot /usr/bin/
 sleep 3
 
 
